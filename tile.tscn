@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq8etjaf4yerr"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yhqha"]
+frequency = 0.0247
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n3f48"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_yhqha")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx4y2"]
+albedo_color = Color(0.5529556, 0.55295557, 0.55295557, 1)
+albedo_texture = SubResource("NoiseTexture2D_n3f48")
+
+[sub_resource type="BoxMesh" id="BoxMesh_a2t34"]
+material = SubResource("StandardMaterial3D_vx4y2")
+size = Vector3(4, 0.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tfor0"]
+size = Vector3(4.0071716, 0.5119629, 4.013916)
+
+[node name="Node3D" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_a2t34")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5258789e-05, 0.002319336, -0.00061035156)
+shape = SubResource("BoxShape3D_tfor0")
