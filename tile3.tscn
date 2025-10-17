@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://bla0epgbuladt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yhqha"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o0gxc"]
+size = Vector3(4.0113144, 0.5119629, 2.0246582)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhqha"]
+albedo_color = Color(0.49354547, 0.49354553, 0.49354553, 1)
+
+[node name="StaticBody3D" type="AnimatableBody3D"]
+disable_mode = 2
+physics_material_override = SubResource("PhysicsMaterial_yhqha")
+sync_to_physics = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0060259104, 0.002319336, -0.99523926)
+shape = SubResource("BoxShape3D_o0gxc")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.87597656)
+size = Vector3(3.5, 0.5, 1.7480469)
+material = SubResource("StandardMaterial3D_yhqha")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.873107, 0, -0.87353516)
+size = Vector3(0.25, 0.45, 1.7529297)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8647833, 0, -0.87353516)
+size = Vector3(0.25, 0.45, 1.7529297)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.854625)
+size = Vector3(3.5, 0.45, 0.25)
+
+[node name="Spawnpoints" type="Node3D" parent="."]
+
+[node name="Point" type="Node3D" parent="Spawnpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="Point2" type="Node3D" parent="Spawnpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="Point3" type="Node3D" parent="Spawnpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+
+[node name="Point4" type="Node3D" parent="Spawnpoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
+
+[node name="RotPoint" type="Node3D" parent="Spawnpoints"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, -1)
+
+[node name="RotPoint2" type="Node3D" parent="Spawnpoints"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, -1)
+
+[node name="ObstaclePoints" type="Node3D" parent="."]
+
+[node name="Node3D2" type="Node3D" parent="ObstaclePoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
+
+[node name="Node3D3" type="Node3D" parent="ObstaclePoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
